@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>limer3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .mainbar {
+            height: 7vh;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 12% 78% 10%;
+            grid-template-rows: 40px 10px;
+            padding-left: 5px;
+            padding-top: 5px;
+            background-color: rgb(38, 38, 38);
+            /* border: 1px solid; */
+        }
+
+        .smallbox {
+            /* height: 6vh;
+            width: 15%; */
+            /* border: 1px solid; */
+        }
+
+        .img1 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .button1 {
+            height: 6vh;
+            width: 80%;
+            border-radius: 5px;
+            background-color: rgb(130, 180, 64);
+            color: white;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bolder;
+            border: none;
+        }
+
+        .parent1 {
+            height: 340vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 100px;
+            /* border: 1px solid; */
+
+
+        }
+
+        .mainbar2 {
+            height: 20vh;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 20% 35% 45%;
+            grid-template-rows: 60px 60px 60px;
+            padding-top: 50px;
+            /* border: 1px solid; */
+        }
+
+        .smallbox3 {
+            display: grid;
+            grid-template-columns: 5%;
+            grid-template-rows: 50px;
+            padding-left: 6%;
+            /* padding-top: 50px; */
+            gap: 10px;
+            cursor: pointer;
+            /* border: 1px solid; */
+
+        }
+
+        .smallbox4 {
+            /* border: 1px solid; */
+        }
+
+        .content {
+            height: 9vh;
+            width: 100%;
+            position: relative;
+            display: grid;
+            grid-template-columns: 15% 15% 19% 14% 19% 5%;
+            grid-template-rows: 50px;
+            padding-left: 5%;
+            /* border: 1px solid red; */
+
+
+
+        }
+
+        .list22 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: rgb(255, 82, 135);
+        }
+
+        .list {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 20px;
+
+            list-style: none;
+        }
+
+        .list:hover {
+            color: rgb(255, 82, 135);
+            cursor: pointer;
+        }
+
+        .listbox {
+            height: 47vh;
+            width: 40%;
+            left: 5%;
+            top: 80px;
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s linear;
+            box-shadow: 1px 2px 12px 2px gray;
+            z-index: 2;
+            background-color: white;
+            border-top: 3px solid rgba(255, 50, 115, 0.808);
+
+        }
+
+        .list:hover .listbox {
+            visibility: visible;
+            opacity: 1;
+            margin-top: -28px;
+            cursor: pointer;
+
+        }
+
+        .listbox2 {
+            height: 47vh;
+            width: 40%;
+            left: 15%;
+            top: 80px;
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s linear;
+            z-index: 2;
+            background-color: white;
+            box-shadow: 1px 2px 12px 2px gray;
+            border-top: 3px solid rgba(255, 50, 115, 0.808);
+        }
+
+        .list:hover .listbox2 {
+            visibility: visible;
+            opacity: 1;
+            margin-top: -28px;
+            cursor: pointer;
+        }
+
+        .listbox3 {
+            height: 47vh;
+            width: 40%;
+            left: 30%;
+            top: 80px;
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s linear;
+            z-index: 2;
+            background-color: white;
+            box-shadow: 1px 2px 12px 2px gray;
+            border-top: 3px solid rgba(255, 50, 115, 0.808);
+        }
+
+        .list:hover .listbox3 {
+            visibility: visible;
+            opacity: 1;
+            margin-top: -28px;
+            cursor: pointer;
+        }
+
+        .listbox4 {
+            height: 47vh;
+            width: 40%;
+            left: 50%;
+            top: 80px;
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s linear;
+            z-index: 2;
+            background-color: white;
+            box-shadow: 1px 2px 12px 2px gray;
+            border-top: 3px solid rgba(255, 50, 115, 0.808);
+
+        }
+
+        .list:hover .listbox4 {
+            visibility: visible;
+            opacity: 1;
+            margin-top: -28px;
+            cursor: pointer;
+        }
+
+
+
+        .content2 {
+            height: 7vh;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin-top: 5px;
+            border-top: 1px solid rgb(216, 213, 213);
+        }
+
+        .list2 {
+            list-style: none;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: lighter;
+            padding-left: 18px;
+            padding-top: 10px;
+            color: black;
+        }
+
+        .divbox {
+            height: 7vh;
+            width: 10%;
+            left: -10%;
+            top: 0;
+            position: absolute;
+            opacity: 1;
+            transition: all linear 0.3s;
+            background-color: rgba(255, 50, 115, 0.808);
+
+        }
+
+        .list2:hover .divbox {
+            width: 100%;
+            opacity: 0;
+            left: 5%;
+
+        }
+
+        .box1 {
+            margin-left: 20%;
+            margin-top: 18px;
+            /* border: 1px solid; */
+        }
+
+        .fa:hover {
+            color: rgb(255, 82, 135);
+            cursor: pointer;
+        }
+
+        .parent2 {
+            height: 280vh;
+            width: 100%;
+            /* border: 1px solid red; */
+        }
+
+        .parent3 {
+            height:90vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            background-image: url(1.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            /* border: 1px solid; */
+        }
+
+        .textbox {
+            height: 12vh;
+            width: max-content;
+            background-color: white;
+            /* border: 1px solid white; */
+        }
+
+        .text {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 76px;
+        }
+
+        .spn {
+            color: rgb(237, 79, 78);
+        }
+
+        .textbox2 {
+            height: 10vh;
+            width: 20%;
+            /* border: 1px solid white; */
+        }
+
+        .text2 {
+            text-align: center;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            color: white;
+        }
+
+        .parent4 {
+            height: 75vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            background-image: url(2.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            /* border: 1px solid; */
+        }
+
+        .spn2 {
+            color: rgb(238, 240, 145);
+        }
+
+        .parent5 {
+            height: 75vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            background-image: url(3.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            /* border: 1px solid; */
+        }
+
+        .textboxs {
+            height: 12vh;
+            width:max-content;
+            background-color: white;
+            /* border: 1px solid white; */
+        }
+
+        .spn3 {
+            color: rgb(1, 102, 213);
+        }
+
+        .parent6 {
+            height: 75vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            background-image: url(4.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            /* border: 1px solid; */
+        }
+
+        .spn4 {
+            color: rgb(86, 219, 145);
+        }
+
+        .textboxs2 {
+            height: 12vh;
+            width:max-content;
+            background-color: white;
+            /* border: 1px solid white; */
+        }
+
+        .parent7 {
+            height: 75vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            background-image: url(5.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            /* border: 1px solid; */
+        }
+
+        .spn5 {
+            color: rgb(236, 94, 178);
+        }
+
+        .parent8 {
+            height: 75vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            background-image: url(6.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            /* border: 1px solid; */
+        }
+
+        .spn6 {
+            color: rgb(132, 65, 142);
+        }
+
+        .parent9 {
+            height: 30vh;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: auto;
+            margin-top: 150px;
+            /* border: 1px solid; */
+        }
+
+        .logobox2 {
+            height: 9vh;
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .lasttext {
+            height: 6vh;
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+
+        .para2 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 15px;
+        }
+
+        .longbox {
+            height: 8vh;
+            width: 40%;
+            display: flex;
+            justify-content: space-around;
+            /* border: 1px solid; */
+        }
+
+        .iconboxes3 {
+            height: 5vh;
+            width: 15%;
+            display: flex;
+            justify-content: center;
+            /* border: 1px solid; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainbar">
+        <div class="smallbox">
+            <img class="img1"
+                src="envato_market-dde916a48af7413e54aa058fe7ae6856752fca799da4bec355f00aea904bfa19 (1).svg" alt="">
+        </div>
+        <div class="smallbox"></div>
+        <div class="smallbox">
+            <button class="button1">Buy now</button>
+        </div>
+    </div>
+    <div class="parent1">
+        <div class="mainbar2">
+            <div class="smallbox3">
+                <img src="logo.png" alt="">
+            </div>
+            <div class="smallbox4"></div>
+            <ul class="content">
+
+                <li class="list list22">HOME
+                    <div class="listbox">
+                        <ul class="content2">
+                            <li class="list2">Creative Home
+                                <div class="divbox"></div>
+                            </li>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Designer Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">
+                                    Portfolio
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Parallax Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Carousel Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Header Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                    </div>
+                </li>
+                <li class="list">ABOUT
+                    <div class="listbox2">
+                        <ul class="content2">
+                            <li class="list2">Creative Home
+                                <div class="divbox"></div>
+                            </li>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Designer Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">
+                                    Portfolio
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Parallax Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Carousel Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Header Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                    </div>
+                </li>
+                <li class="list">PORTFOLIO
+                    <div class="listbox3">
+                        <ul class="content2">
+                            <li class="list2">Creative Home
+                                <div class="divbox"></div>
+                            </li>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Designer Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">
+                                    Portfolio
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Parallax Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Carousel Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Header Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                    </div>
+                </li>
+                <li class="list">BLOG
+                    <div class="listbox4">
+                        <ul class="content2">
+                            <li class="list2">Creative Home
+                                <div class="divbox"></div>
+                            </li>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Designer Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">
+                                    Portfolio
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Parallax Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Carousel Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                        <ul class="content2">
+                            <ul class="content2">
+                                <li class="list2">Header Home
+                                    <div class="divbox"></div>
+                                </li>
+                            </ul>
+                        </ul>
+                    </div>
+                </li>
+                <li class="list">CONTACT US</li>
+
+
+                <div class="box1">
+                    <i class="fa-solid fa-bars fa"></i>
+                </div>
+
+
+            </ul>
+        </div>
+        <div class="parent2">
+            <div class="parent3">
+                <div class="textbox" data-aos="fade-left"  data-aos-offset="400">
+                    <h1 class="text"><span class="spn">CREATIVE</span>DESIGN</h1>
+                </div>
+                <div class="textbox2"  data-aos="fade-right" data-aos-offset="400">
+                    <h2 class="text2">Branding Design</h2>
+                </div>
+            </div>
+            <div class="parent4">
+                <div class="textbox" data-aos="fade-left"  data-aos-offset="400">
+                    <h1 class="text"><span class="spn2">MODERN</span>DESIGN</h1>
+                </div>
+                <div class="textbox2"  data-aos="fade-right" data-aos-offset="400">
+                    <h2 class="text2">Branding Design</h2>
+                </div>
+            </div>
+            <div class="parent5">
+                <div class="textboxs"data-aos="fade-left"  data-aos-offset="400">
+                    <h1 class="text"><span class="spn3">BRANDING</span>COLLECTION</h1>
+                </div>
+                <div class="textbox2" data-aos="fade-right" data-aos-offset="400">
+                    <h2 class="text2">Branding Design</h2>
+                </div>
+            </div>
+            <div class="parent6">
+                <div class="textboxs2" data-aos="fade-left"  data-aos-offset="400">
+                    <h1 class="text"><span class="spn4">CUP OF</span>COFFE</h1>
+                </div>
+                <div class="textbox2" data-aos="fade-right" data-aos-offset="400">
+                    <h2 class="text2">Branding Design</h2>
+                </div>
+            </div>
+            <div class="parent7">
+                <div class="textbox" data-aos="fade-left"  data-aos-offset="400">
+                    <h1 class="text"><span class="spn5">MINIMAL</span>DESIGN</h1>
+                </div>
+                <div class="textbox2" data-aos="fade-right" data-aos-offset="400">
+                    <h2 class="text2">Branding Design</h2>
+                </div>
+            </div>
+            <div class="parent8">
+                <div class="textboxs" data-aos="fade-left"  data-aos-offset="400">
+                    <h1 class="text"><span class="spn6">RESTARUNT</span>COLLECTION</h1>
+                </div>
+                <div class="textbox2"data-aos="fade-right" data-aos-offset="400">
+                    <h2 class="text2">Branding Design</h2>
+                </div>
+            </div>
+            <div class="parent9">
+                <div class="logobox2">
+                    <img src="http://t.commonsupport.xyz/limerick/images/footer-logo.png" alt="">
+                </div>
+                <div class="lasttext">
+                    <p class="para2">© Copyright 2019 Limerick. All Rights Reserved</p>
+                </div>
+                <div class="longbox">
+                    <div class="iconboxes3">
+                        <i class="fa-solid fa-bars bars"></i>
+                    </div>
+                    <div class="iconboxes3">
+                        <i class="fa-brands fa-facebook-f bars"></i>
+                    </div>
+                    <div class="iconboxes3">
+                        <i class="fa-brands fa-twitter bars"></i>
+                    </div>
+                    <div class="iconboxes3">
+                        <i class="fa-brands fa-google-plus-g bars"></i>
+                    </div>
+                    <div class="iconboxes3">
+                        <i class="fa-solid fa-globe bars"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
